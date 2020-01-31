@@ -1,0 +1,45 @@
+<h2 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  Friends
+</h2>
+<div class="ui two colomn grid">
+  <div class="twelve wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content" id="messages">
+        <div class="ui feed" id="message-contain">
+          <h4 class="ui header"></h4>
+          <%= render @messages %>
+        </div>
+      </div>
+      <div class="extra content">
+      <%= form_for(@message, html: { class: 'ui reply form', role: 'form' }, url: message_path, remote: true) do |f| %>
+        <form class="ui reply form">
+          <div class="field">
+            <div class="ui fluid input icon">
+              <%= f.text_field :body %>
+              <%= f.button '<i class="bordered orange inverted icon edit"></i>'.html_safe %>
+            </div>
+          </div>
+        </form>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="four wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui inverted vertical menu">
+          <a class="active item">
+            Home
+          </a>
+          <a class="item">
+            Messages
+          </a>
+          <a class="item">
+            Friends
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
