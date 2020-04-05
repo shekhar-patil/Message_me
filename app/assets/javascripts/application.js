@@ -21,6 +21,15 @@ scroll_bottom = function() {
   $("#messages").scrollTop($("#messages")[0].scrollHeight);
 }
 
+submit_message = function () {
+  $('#message_body').on('keydown', function(e){
+    if(e.keycode == 13) {
+      $('button').click();
+      $('message_body').val('');
+    }
+  });
+}
+
 $(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
 
